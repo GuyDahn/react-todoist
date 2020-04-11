@@ -12,6 +12,7 @@ import {
   useSelectedProjectValue,
   useProjectsValue
 } from '../context';
+import { AddTask } from './AddTask';
 
 
 export const Tasks = () => {
@@ -35,7 +36,7 @@ export const Tasks = () => {
   useEffect(() => { document.title = `${projectName}: Todoist` }, [])
 
   console.log('tasks', tasks);
-  
+
 
   return (
     <div className="tasks" data-testid="tasks">
@@ -49,7 +50,7 @@ export const Tasks = () => {
           </li>
         ))}
       </ul>
-
+      <AddTask />
     </div>
   )
 }
