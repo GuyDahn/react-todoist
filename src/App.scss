@@ -413,11 +413,11 @@ header {
 
     &__inner {
         @include box-overlay();
-        z-index: 99;
-        width: 200px;
-        padding: 10px;
-        top: 10px;
-        right: 0;
+        z-index: 99!important;
+        width: 200px!important;
+        padding: 10px!important;
+        top: 10px!important;
+        right: 0!important;
         background-color: white;
 
         p {
@@ -446,7 +446,7 @@ header {
     -ms-flex-align: center;
     align-items: center;
     grid-template-columns: 1fr auto;
-    max-width: 922px;
+    max-width: 900px;
     margin: auto;
 }
 
