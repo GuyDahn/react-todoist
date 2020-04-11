@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Checkbox } from "./Checkbox";
 import { useTasks } from "../hooks";
 import { collatedTasks } from '../constants';
@@ -24,18 +24,13 @@ export const Tasks = () => {
 
   if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
     projectName = getTitle(projects, selectedProject).name
-    console.log('projectName 1:', projectName);
-
   }
 
   if (collatedTasksExist(selectedProject) && selectedProject) {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name
-    console.log('projectName 2:', projectName);
   }
 
-  useEffect(() => { document.title = `${projectName}: Todoist` }, [])
-
-  console.log('tasks', tasks);
+  useEffect(() => { document.title = `${projectName}: Todoist` }, [projectName])
 
 
   return (
