@@ -134,6 +134,9 @@ $generic-bg: #db4c3f;
         background-color: #282828;
         border-color: transparent;
     }
+    .app {
+        background-color: #6d6d6d;
+    }
 }
 
 header {
@@ -366,7 +369,7 @@ header {
             color: #333;
             display: -webkit-box;
             display: -ms-flexbox;
-            display: flex!important;
+            display: flex !important;
             cursor: pointer;
             line-height: 1.5;
             font-size: 15px;
@@ -413,11 +416,11 @@ header {
 
     &__inner {
         @include box-overlay();
-        z-index: 99!important;
-        width: 200px!important;
-        padding: 10px!important;
-        top: 10px!important;
-        right: 0!important;
+        z-index: 99 !important;
+        width: 200px !important;
+        padding: 10px !important;
+        top: 10px !important;
+        right: 0 !important;
         background-color: white;
 
         p {

@@ -4,14 +4,14 @@ import { firebase } from '../firebase';
 import { collatedTasksExist } from '../helpers';
 
 export const useTasks = selectedProject => {
-    const [tasks, setTasks] = useState([]);
-    const [archivedTasks, setArchivedTasks] = useState([]);
+    const [tasks, setTasks] = useState([])
+    const [archivedTasks, setArchivedTasks] = useState([])
 
     useEffect(() => {
         let unsubscribe = firebase
             .firestore()
             .collection('tasks')
-            .where('userId', '==', 'Dk7LAgAzXo57yFign8nF');
+            .where('userId', '==', 'Dk7LAgAzXo57yFign8nF')
 
         unsubscribe =
             selectedProject && !collatedTasksExist(selectedProject)
@@ -24,13 +24,13 @@ export const useTasks = selectedProject => {
                     ))
                     : selectedProject === 'INBOX' || selectedProject === 0
                         ? (unsubscribe = unsubscribe.where('date', '==', ''))
-                        : unsubscribe;
+                        : unsubscribe
 
         unsubscribe = unsubscribe.onSnapshot(snapshot => {
             const newTasks = snapshot.docs.map(task => ({
                 id: task.id,
                 ...task.data(),
-            }));
+            }))
 
             setTasks(
                 selectedProject === 'NEXT_7'
@@ -40,18 +40,18 @@ export const useTasks = selectedProject => {
                             task.archived !== true
                     )
                     : newTasks.filter(task => task.archived !== true)
-            );
-            setArchivedTasks(newTasks.filter(task => task.archived !== false));
-        });
+            )
+            setArchivedTasks(newTasks.filter(task => task.archived !== false))
+        })
 
-        return () => unsubscribe();
-    }, [selectedProject]);
+        return () => unsubscribe()
+    }, [selectedProject])
 
-    return { tasks, archivedTasks };
-};
+    return { tasks, archivedTasks }
+}
 
 export const useProjects = () => {
-    const [projects, setProjects] = useState([]);
+    const [projects, setProjects] = useState([])
 
     useEffect(() => {
         firebase
@@ -64,13 +64,13 @@ export const useProjects = () => {
                 const allProjects = snapshot.docs.map(project => ({
                     ...project.data(),
                     docId: project.id,
-                }));
+                }))
 
                 if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
-                    setProjects(allProjects);
+                    setProjects(allProjects)
                 }
-            });
-    }, [projects]);
+            })
+    }, [projects])
 
-    return { projects, setProjects };
-};
+    return { projects, setProjects }
+}

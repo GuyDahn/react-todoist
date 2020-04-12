@@ -4,7 +4,7 @@ import { FaRegListAlt, FaRegCalendarAlt } from "react-icons/fa";
 import moment from 'moment'
 import { firebase } from "../firebase";
 import { useSelectedProjectValue } from "../context";
-import { collatedTasks } from '../constants';
+// import { collatedTasks } from '../constants';
 import { ProjectOverlay } from './ProjectOverlay';
 import { TaskDate } from './TaskDate';
 
