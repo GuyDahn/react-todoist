@@ -14,25 +14,25 @@ export const AddTask = ({
     showQuickAddTask,
     setShowQuickAddTask,
 }) => {
-    const [task, setTask] = useState('');
-    const [taskDate, setTaskDate] = useState('');
-    const [project, setProject] = useState('');
-    const [showMain, setShowMain] = useState(shouldShowMain);
-    const [showProjectOverlay, setShowProjectOverlay] = useState(false);
-    const [showTaskDate, setShowTaskDate] = useState(false);
+    const [task, setTask] = useState('')
+    const [taskDate, setTaskDate] = useState('')
+    const [project, setProject] = useState('')
+    const [showMain, setShowMain] = useState(shouldShowMain)
+    const [showProjectOverlay, setShowProjectOverlay] = useState(false)
+    const [showTaskDate, setShowTaskDate] = useState(false)
 
-    const { selectedProject } = useSelectedProjectValue();
+    const { selectedProject } = useSelectedProjectValue()
 
     const addTask = () => {
-        const projectId = project || selectedProject;
-        let collatedDate = '';
+        const projectId = project || selectedProject
+        let collatedDate = ''
 
         if (projectId === 'TODAY') {
-            collatedDate = moment().format('DD/MM/YYYY');
+            collatedDate = moment().format('DD/MM/YYYY')
         } else if (projectId === 'NEXT_7') {
             collatedDate = moment()
                 .add(7, 'days')
-                .format('DD/MM/YYYY');
+                .format('DD/MM/YYYY')
         }
 
         return (
@@ -49,13 +49,13 @@ export const AddTask = ({
                     userId: 'Dk7LAgAzXo57yFign8nF',
                 })
                 .then(() => {
-                    setTask('');
-                    setProject('');
-                    setShowMain('');
-                    setShowProjectOverlay(false);
+                    setTask('')
+                    setProject('')
+                    setShowMain('')
+                    setShowProjectOverlay(false)
                 })
-        );
-    };
+        )
+    }
 
     return (
         <div
@@ -88,14 +88,14 @@ export const AddTask = ({
                                     data-testid="add-task-quick-cancel"
                                     aria-label="Cancel adding task"
                                     onClick={() => {
-                                        setShowMain(false);
-                                        setShowProjectOverlay(false);
-                                        setShowQuickAddTask(false);
+                                        setShowMain(false)
+                                        setShowProjectOverlay(false)
+                                        setShowQuickAddTask(false)
                                     }}
                                     onKeyDown={() => {
-                                        setShowMain(false);
-                                        setShowProjectOverlay(false);
-                                        setShowQuickAddTask(false);
+                                        setShowMain(false)
+                                        setShowProjectOverlay(false)
+                                        setShowQuickAddTask(false)
                                     }}
                                     tabIndex={0}
                                     role="button"
@@ -140,12 +140,12 @@ export const AddTask = ({
                             className="add-task__cancel"
                             data-testid="add-task-main-cancel"
                             onClick={() => {
-                                setShowMain(false);
-                                setShowProjectOverlay(false);
+                                setShowMain(false)
+                                setShowProjectOverlay(false)
                             }}
                             onKeyDown={() => {
-                                setShowMain(false);
-                                setShowProjectOverlay(false);
+                                setShowMain(false)
+                                setShowProjectOverlay(false)
                             }}
                             aria-label="Cancel adding a task"
                             tabIndex={0}
@@ -177,5 +177,5 @@ export const AddTask = ({
                 </div>
             )}
         </div>
-    );
-};
+    )
+}

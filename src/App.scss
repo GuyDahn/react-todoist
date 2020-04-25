@@ -134,7 +134,7 @@ $generic-bg: #db4c3f;
         background-color: #282828;
         border-color: transparent;
     }
-    .app {
+    main  {
         background-color: #6d6d6d;
     }
 }
@@ -525,7 +525,7 @@ header {
     ============================================ */
 .add-task {
     &__overlay {
-        background: rgba(102, 102, 102, 0.5);
+        background: rgba(102,102,102,0.5);
         position: absolute;
         margin: auto;
         top: 0;

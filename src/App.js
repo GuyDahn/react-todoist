@@ -7,7 +7,7 @@ export const App = ({ darkModeDefault = false }) => {
   const [darkMode, setDarkMode] = useState(darkModeDefault)
   return (
     <SelectedProjectProvider>
-      <ProjectsProvider className='app'>
+      <ProjectsProvider className='App'>
         <main
           data-testid='application'
           className={darkMode ? 'darkmode' : undefined}
@@ -17,5 +17,5 @@ export const App = ({ darkModeDefault = false }) => {
         </main>
       </ProjectsProvider>
     </SelectedProjectProvider>
-  );
+  )
 }
